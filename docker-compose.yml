@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: mindtype-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mindtype
+      POSTGRES_PASSWORD: mindtype
+      POSTGRES_DB: mindtype
+    ports:
+      - "5433:5432"
+    volumes:
+      - mindtype_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mindtype -d mindtype"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mindtype_pgdata:
