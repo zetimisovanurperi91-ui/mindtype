@@ -1,5 +1,5 @@
-aiogram
-SQLAlchemy
-asyncpg
-alembic
-pydantic
+aiogram>=3.16.0
+SQLAlchemy==2.0.36
+asyncpg>=0.31.0
+alembic>=1.14.0
+pydantic>=2.10.0
